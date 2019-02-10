@@ -48,10 +48,42 @@ fun main(args: Array<String>?) {
             line = fileReader.readLine()
         }
 
-        // Print the new customer list
+        var clic = 0.0
         for (device in devices) {
-            println(device)
+            clic += device.clics
         }
+
+
+        var cost = 0.0
+        for (device in devices) {
+            cost += device.cost
+        }
+        println(cost/clic)
+
+        var impressions = 0.0
+        for (device in devices) {
+            impressions += device.impressions
+        }
+
+        val clicimpre = (clic / impressions)*100
+        println("le taux de clic est de " + clicimpre)
+
+        var CA = 0.0
+        for (device in devices){
+            CA += device.ca
+        }
+
+        val ROI = CA / cost
+        println("Le ROI est de " + ROI)
+
+        var commandes= 0.0
+        for (device in devices){
+            commandes += device.commande
+        }
+
+        val panierMoyen = CA / commandes
+        println(panierMoyen)
+
     } catch (e: Exception) {
         println("Reading CSV Error!")
         e.printStackTrace()
